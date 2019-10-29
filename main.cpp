@@ -1,3 +1,12 @@
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <dedkam2@wp.pl> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return.
+ * ----------------------------------------------------------------------------
+ */
+
 #include <tchar.h>
 #include <iostream>
 #include <windows.h>
@@ -23,32 +32,32 @@ int ERRORBOX(int IORENR, string IORESTR)
 	switch (IORENR)
 	{
 		case 1:
-			winTxt = "[INFO] Pomyœlnie wczytano plik.";
+			winTxt = "[INFO] PomyÅ“lnie wczytano plik.";
 			break;
 		case 2:
 			winTxt = "[ERROR] Plik nie istnieje!";
 			break;
 		case 3:
-			winTxt = "[ERROR] Dane wyjœcie nie istnieje!";
+			winTxt = "[ERROR] Dane wyjÅ“cie nie istnieje!";
 			if (IORESTR == "fileShow") SetWindowText(fileShow, "");
 			break;
 		case 4:
-			winTxt = "[INFO] Pomyœlnie zmieniono nazwe wyjœcia na: \"" + IORESTR + "\".";
+			winTxt = "[INFO] PomyÅ“lnie zmieniono nazwe wyjÅ“cia na: \"" + IORESTR + "\".";
 			break;
 		case 5:
-			winTxt = "[ERROR] Musisz wprowadziæ text!";
+			winTxt = "[ERROR] Musisz wprowadziÃ¦ text!";
 			break;
 		case 6:
-			winTxt = "[INFO] Pomyœlnie zapisano text!";
+			winTxt = "[INFO] PomyÅ“lnie zapisano text!";
 			break;
 		case 7:
-			winTxt = "[INFO] Pomyœlnie usuniêto plik z wyjœciem!";
+			winTxt = "[INFO] PomyÅ“lnie usuniÃªto plik z wyjÅ“ciem!";
 			break;
 		case 8:
-			winTxt = "[ERROR] Dane wyjœcie nie istnieje!";
+			winTxt = "[ERROR] Dane wyjÅ“cie nie istnieje!";
 			break;
 		case 9:
-			winTxt = "[INFO] Pomyœlnie wczytano program.";
+			winTxt = "[INFO] PomyÅ“lnie wczytano program.";
 			break;
 	}
 	SetWindowText(ErrorBox, winTxt.c_str());
@@ -221,7 +230,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		{
 			textfield = CreateWindow(
 				"STATIC",
-				"Prosty program do zapisywania textu w pliku. By Damian Kreñski.",
+				"Prosty program do zapisywania textu w pliku. By Damian KreÃ±ski.",
 				WS_VISIBLE | WS_CHILD | WS_BORDER | ES_CENTER,
 				0, 0, 500, 20,
 				hwnd, NULL, NULL, NULL);
@@ -249,14 +258,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 				
 			CreateWindow(
 				"BUTTON",
-				"USUÑ WYJŒCIE",
+				"USUÃ‘ WYJÅ’CIE",
 				WS_VISIBLE | WS_CHILD | WS_BORDER,
 				0, 370, 250, 20,
 				hwnd, (HMENU) 2, NULL, NULL);
 				
 			CreateWindow(
 				"BUTTON",
-				"WCZYTAJ WYJŒCIE",
+				"WCZYTAJ WYJÅ’CIE",
 				WS_VISIBLE | WS_CHILD | WS_BORDER,
 				250, 370, 250, 20,
 				hwnd, (HMENU) 5, NULL, NULL);
@@ -277,7 +286,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 
 			CreateWindow(
 				"EDIT",
-				"Wpisz nazwê wyjœcia poni¿ej.",
+				"Wpisz nazwÃª wyjÅ“cia poniÂ¿ej.",
 				WS_VISIBLE | WS_CHILD | WS_BORDER | ES_CENTER | ES_READONLY,
 				0, 390, 500, 20,
 				hwnd, NULL, NULL, NULL);
@@ -404,7 +413,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wc.hIconSm		 = LoadIcon(NULL, IDI_APPLICATION);
 
 	if(!RegisterClassEx(&wc)) {
-		MessageBox(NULL, "Nie mo¿na wczytaæ programu!","Error!",MB_ICONEXCLAMATION|MB_OK);
+		MessageBox(NULL, "Nie moÂ¿na wczytaÃ¦ programu!","Error!",MB_ICONEXCLAMATION|MB_OK);
 		return 0;
 	}
 
@@ -420,7 +429,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		NULL,NULL,hInstance,NULL);
 
 	if(hwnd == NULL) {
-		MessageBox(NULL, "Nie mo¿na stworzyæ okna!","Error!",MB_ICONEXCLAMATION|MB_OK);
+		MessageBox(NULL, "Nie moÂ¿na stworzyÃ¦ okna!","Error!",MB_ICONEXCLAMATION|MB_OK);
 		return 0;
 	} else {
 		ERRORBOX(9, "");
